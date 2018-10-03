@@ -40,9 +40,9 @@ fs.readdir('./komutlar/', (err, files) => {
   log(`${files.length} komut yüklenecek.`);
   files.forEach(f => {
     let props = require(`./komutlar/${f}`);
-    log(`Komut Olusturuluyo : ${props.help.name} .`);
+    log(`Yüklenen komut: ${props.help.name}.`);
     client.commands.set(props.help.name, props);
-	  props.conf.aliases.forEach(alias => {
+    props.conf.aliases.forEach(alias => {
       client.aliases.set(alias, props.help.name);
     });
   });
